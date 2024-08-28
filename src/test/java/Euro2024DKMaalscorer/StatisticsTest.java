@@ -13,7 +13,7 @@ class StatisticsTest {
 
         Statistics statistics = new Statistics("src/main/resources/Euro2024QualifyingRound.csv");
 
-        String goalScorerKey= "Wind";
+        String goalScorerKey = "Wind";
         int expectedResult= 3;
         int actualResult = statistics.getNumberOfGoals(goalScorerKey);
         assertEquals(expectedResult, actualResult);

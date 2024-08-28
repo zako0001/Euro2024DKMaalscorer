@@ -17,10 +17,10 @@ public class Statistics {
     // Getters
     public Set<String> getGoalScorers() {
 
-        return getGoalsPerScorer().keySet();
+        return getGoalScorersWithTotals().keySet();
     }
 
-    public Map<String, Integer> getGoalsPerScorer() {
+    public Map<String, Integer> getGoalScorersWithTotals() {
 
         if (goalsPerScorer != null) {
             return goalsPerScorer;
@@ -42,6 +42,6 @@ public class Statistics {
 
     public int getNumberOfGoals(String goalScorer) {
 
-        return getGoalsPerScorer().get(goalScorer);
+        return getGoalScorersWithTotals().get(goalScorer);
     }
 }
