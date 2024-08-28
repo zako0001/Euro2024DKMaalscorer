@@ -3,6 +3,7 @@ package Euro2024DKMaalscorer;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -24,15 +25,14 @@ public class MatchResultFileReader {
         while (scanner.hasNextLine()) {
 
             String[] line = scanner.nextLine().split(";");
-            String match = line[0];
+            String teams = line[0];
             List<String> scorers = new ArrayList<>();
 
-            if (line.length == 2) {
-                List<String> unmodifiableList = List.of(line[1].split(","));
-                scorers.addAll(unmodifiableList);
+            if (line.length > 1) {
+                scorers.addAll(Arrays.asList(line[1].split(",")));
             }
 
-            matchResults.add(new MatchResult(match, scorers));
+            matchResults.add(new MatchResult(teams, scorers));
         }
 
         return matchResults;
