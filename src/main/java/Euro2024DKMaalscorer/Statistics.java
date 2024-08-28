@@ -7,7 +7,7 @@ public class Statistics {
 
     // Attribute
     private List<MatchResult> matchResults;
-    private Map<String, Integer> goalScorersWithTotals;
+    private Map<String, Integer> goalsPerScorer;
 
     // Constructor
     public Statistics(String filename) throws FileNotFoundException {
@@ -17,16 +17,16 @@ public class Statistics {
     // Getters
     public Set<String> getGoalScorers() {
 
-        return getGoalScorersWithTotals().keySet();
+        return getGoalsPerScorer().keySet();
     }
 
-    public Map<String, Integer> getGoalScorersWithTotals() {
+    public Map<String, Integer> getGoalsPerScorer() {
 
-        if (goalScorersWithTotals != null) {
-            return goalScorersWithTotals;
+        if (goalsPerScorer != null) {
+            return goalsPerScorer;
         }
 
-        Map<String, Integer> goalsPerScorer = new HashMap<>();
+        goalsPerScorer = new HashMap<>();
 
         for (MatchResult matchResult : matchResults) {
 
@@ -42,6 +42,6 @@ public class Statistics {
 
     public int getNumberOfGoals(String goalScorer) {
 
-        return getGoalScorersWithTotals().get(goalScorer);
+        return getGoalsPerScorer().get(goalScorer);
     }
 }
